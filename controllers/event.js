@@ -1,4 +1,4 @@
-import { EventModel } from "../models/add_event";
+import { EventModel } from "../models/add_event.js";
 
 
 
