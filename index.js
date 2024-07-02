@@ -1,7 +1,7 @@
 import express from "express";
 import 'dotenv/config'
 import { dbConnection } from "./config/db.js";
-import eventRouter from "./routes/art.js";
+import eventRouter from "./routes/event-app.js";
  
 //create Expree App
 const app = express();
