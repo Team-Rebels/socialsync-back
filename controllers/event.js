@@ -25,6 +25,20 @@ export const updateEvent = async (req, res, next) => {
         next(error)
     }
 }
+// get event
+export const getEvent = async (req, res, next) => {
+    try {
+        // Get all  event
+        const allEvent = await EventModel.create(req.body);
+        //return response
+        res.json(allEvent);
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+
 
 //delete event
 export const deleteEvent = async (req, res, next) => {
