@@ -3,16 +3,16 @@ import { addEvent, deleteEvent, getEvent, updateEvent } from "../controllers/eve
 
 
 // create a route
-const  eventRouter = Router();
+const eventRouter = Router();
 
-
-
-//defining the route
+//DEFINE ROUTES
+//post route
 eventRouter.post('/event', addEvent);
-eventRouter.patch('/event', updateEvent);
-eventRouter.delete('/event', deleteEvent);
-
-// get route
+// route to update Event
+eventRouter.patch('/event/:id', updateEvent);
+//route to delete Event
+eventRouter.delete('/event/:id', deleteEvent);
+// Route to Get All Event
 eventRouter.get('/event', getEvent);
 
 
