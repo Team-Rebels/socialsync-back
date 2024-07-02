@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addEvent, deleteEvent, updateEvent } from "../controllers/event";
+import { addEvent, deleteEvent, updateEvent } from "../controllers/event.js";
 
 
 // create a route
