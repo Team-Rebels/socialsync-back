@@ -4,7 +4,7 @@ import { EventModel } from "../models/event_models.js";
 
 
 // add event
-export const addEvent = async (req, res, next) => {
+export const addEvents = async (req, res, next) => {
     try {
         const addData = await EventModel.create({
            ...req.body,
@@ -29,8 +29,8 @@ export const updateEvent = async (req, res, next) => {
         next(error)
     }
 }
-// get event
-export const getEvent = async (req, res, next) => {
+// get  All event
+export const getEvents = async (req, res, next) => {
     try {
         // Get all  event
         const allEvent = await EventModel.find();

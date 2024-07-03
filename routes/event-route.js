@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addEvent, deleteEvent, getEvent, updateEvent } from "../controllers/event_Controller.js";
+import { addEvents, deleteEvent, getEvents, updateEvent } from "../controllers/event_Controller.js";
 import { remoteUploads } from "../middlewares/uploads.js";
 
 
@@ -8,13 +8,13 @@ const eventRouter = Router();
 
 //DEFINE ROUTES
 //post route
-eventRouter.post('/event', remoteUploads.single('flier'), addEvent);
+eventRouter.post('/events', remoteUploads.single('flier'), addEvents);
 // route to update Event
-eventRouter.patch('/event/:id', updateEvent);
+eventRouter.patch('/events/:id', updateEvent);
 //route to delete Event
-eventRouter.delete('/event/:id', deleteEvent);
+eventRouter.delete('/events/:id', deleteEvent);
 // Route to Get All Event
-eventRouter.get('/event', getEvent);
+eventRouter.get('/events', getEvents);
 
 
 
