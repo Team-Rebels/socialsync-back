@@ -22,4 +22,4 @@ const event_categoriesSchema = new Schema({
 
 event_categoriesSchema.plugin(toJSON)
 
-export const categoriestModel = model('Event_Categorie', event_categoriesSchema)
+export const categoriesModel = model('Event_Categorie', event_categoriesSchema)
