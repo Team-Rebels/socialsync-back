@@ -13,11 +13,11 @@ const eventSchema = new Schema({
         type: String,
         required: true
     },
-    categoryId: {
-        type: Types.ObjectId,
-        ref: 'Category',
-        required: true
-    },
+    // categoryId: {
+    //     type: Types.ObjectId,
+    //     ref: 'Category',
+    //     required: true
+    // },
     date: {
         type: Date,
         required: true
