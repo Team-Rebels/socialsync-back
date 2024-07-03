@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import { toJSON } from "@reis/mongoose-to-json";
+import { Timestamp } from "mongodb";
 
 //create  Event schema 
 const eventSchema = new Schema({
@@ -15,7 +16,11 @@ const eventSchema = new Schema({
         type: Number,
         required: true
     },
-    location: {
+    address: {
+        type: String,
+        required: true
+    },
+    city: {
         type: String,
         required: true
     },
@@ -23,11 +28,10 @@ const eventSchema = new Schema({
         type: String
     },
 
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-});
+},
+    {
+        timestamps: true
+    });
 
 
 eventSchema.plugin(toJSON)

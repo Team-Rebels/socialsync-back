@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { addEvent, deleteEvent, getEvent, updateEvent } from "../controllers/event_Controller.js";
-import { localUpload } from "../middlewares/uploads.js";
+import { remoteUploads } from "../middlewares/uploads.js";
 
 
 // create a route
@@ -8,7 +8,7 @@ const eventRouter = Router();
 
 //DEFINE ROUTES
 //post route
-eventRouter.post('/event', localUpload.single('flier'), addEvent);
+eventRouter.post('/event', remoteUploads.single('flier'), addEvent);
 // route to update Event
 eventRouter.patch('/event/:id', updateEvent);
 //route to delete Event
