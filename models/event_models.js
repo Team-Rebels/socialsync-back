@@ -19,7 +19,7 @@ const eventSchema = new Schema({
         type: String,
         required: true
     },
-    flierUrl: {
+    flier: {
         type: String
     },
 

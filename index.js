@@ -1,7 +1,7 @@
 import express from "express";
 import 'dotenv/config'
 import { dbConnection } from "./config/db.js";
-import eventRouter from "./routes/event-app.js";
+import eventRouter from "./routes/event-route.js";
  
 //create Expree App
 const app = express();
@@ -12,7 +12,7 @@ dbConnection();
 
 //apply middlewares
 app.use(express.json());
-
+app.use(express.static('uploads'))
 
 
 //defining routes

@@ -1,4 +1,4 @@
-import { EventModel } from "../models/add_event.js";
+import { EventModel } from "../models/event_models.js";
 
 
 
@@ -6,7 +6,9 @@ import { EventModel } from "../models/add_event.js";
 // add event
 export const addEvent = async (req, res, next) => {
     try {
-        const addData = await EventModel.create(req.body)
+        const addData = await EventModel.create({
+           ...req.body,
+         flier: req.file.filename})
         res.status(201).json(addData)
     } catch (error) {
         next(error)
