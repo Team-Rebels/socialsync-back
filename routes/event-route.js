@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addEvents, deleteEvent, eventbyDate, getEventbyId, updateEvent } from "../controllers/event_Controller.js";
+import { addEvents, deleteEvent, getEventbyId, getEvents, updateEvent } from "../controllers/event_Controller.js";
 import { remoteUploads } from "../middlewares/uploads.js";
 
 
@@ -14,7 +14,7 @@ eventRouter.patch('/events/:id', updateEvent);
 //route to delete Event
 eventRouter.delete('/events/:id', deleteEvent);
 // Route to Get All Event
-eventRouter.get('/events', eventbyDate);
+eventRouter.get('/events',getEvents);
 //get an event by ID
 eventRouter.get('/events/:id',getEventbyId)
 // search event by  Name,price and location
