@@ -64,3 +64,23 @@ export const deleteEvent = async (req, res, next) => {
         next(error)
     }
 }
+
+
+// Get events by date range
+export const eventbyDate = async (req, res) => {
+    const { startDate, endDate } = req.query;
+    let query = {};
+  
+    if (startDate && endDate) {
+      query.date = { $gte: new Date(startDate), $lte: new Date(endDate) };
+    }
+  
+    try {
+      const events = await EventModel.find(query);
+      res.status(200).json(events);
+    } catch (error) {
+        next(error)
+    }
+  };
+
+  
