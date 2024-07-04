@@ -14,9 +14,11 @@ eventRouter.patch('/events/:id', updateEvent);
 //route to delete Event
 eventRouter.delete('/events/:id', deleteEvent);
 // Route to Get All Event
-eventRouter.get('/events', getEvents);
+eventRouter.get('/events',getEvents);
 //get an event by ID
 eventRouter.get('/events/:id',getEventbyId)
+// search event by  Name,price and location
+
 
 
 

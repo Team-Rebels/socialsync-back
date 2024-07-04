@@ -1,5 +1,5 @@
 import { EventModel } from "../models/event_models.js";
-
+import { json } from "express";
 
 
 
@@ -7,8 +7,8 @@ import { EventModel } from "../models/event_models.js";
 export const addEvents = async (req, res, next) => {
     try {
         const addData = await EventModel.create({
-           ...req.body,
-         flier: req.file.filename})
+            ...req.body,
+            flier: req.file.filename})
         res.status(201).json(addData)
     } catch (error) {
         next(error)
@@ -23,7 +23,7 @@ export const updateEvent = async (req, res, next) => {
             { _id: eventId },
             req.body,
             { new: true })
-            
+
         res.status(200).json(updatedData)
     } catch (error) {
         next(error)
@@ -32,8 +32,25 @@ export const updateEvent = async (req, res, next) => {
 // get  All event
 export const getEvents = async (req, res, next) => {
     try {
+        //Get query params
+        const {
+            filter = "{}",
+            sort = "{}",
+            fields = "{}",
+            limit = 10,
+            skip = 0,
+            
+        } = req.query
+      
+
         // Get all  event
-        const allEvent = await EventModel.find();
+        const allEvent = await EventModel
+            .find(JSON.parse(filter))
+            .sort(JSON.parse(sort))
+            .select(JSON.parse(fields))
+            .limit(limit)
+            .skip(skip);
+
         //return response
         res.status(200).json(allEvent);
     } catch (error) {
@@ -53,7 +70,7 @@ export const getEventbyId = async (req, res, next) => {
         next(error)
     }
 
-} 
+}
 
 //delete event
 export const deleteEvent = async (req, res, next) => {
